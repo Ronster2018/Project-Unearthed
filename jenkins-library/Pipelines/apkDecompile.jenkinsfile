@@ -11,9 +11,9 @@ pipeline{
         file '/apk'
     }
     stages{
-        stage("A"){
+        stage("Decompile"){
             steps{
-                echo "========executing A========"
+                sh 'find . -iname *.apk'
             }
         }
     }
