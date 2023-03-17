@@ -1,9 +1,9 @@
 pipeline{
     agent{
         dockerfile{
-            filename 'DokcerfileJadX'
+            filename 'DockerfileJadX'
             // Dir - where the dockerfiles are located
-            dir 'dockerfiles/apks'
+            dir 'dockerfiles/apks/'
             args '-v $WORKSPACE"/apk:/apk'
         }
     }
