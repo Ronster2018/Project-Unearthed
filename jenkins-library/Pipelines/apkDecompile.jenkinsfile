@@ -1,0 +1,28 @@
+pipeline{
+    agent{
+        dockerfile{
+            filename 'DokcerfileJadX'
+            // Dir - where the dockerfiles are located
+            dir 'dockerfiles'
+            args '-v $WORKSPACE"/apk'
+        }
+    }
+    stages{
+        stage("A"){
+            steps{
+                echo "========executing A========"
+            }
+        }
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}

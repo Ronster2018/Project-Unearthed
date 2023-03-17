@@ -14,3 +14,5 @@ RUN apk add openjdk11 && \
 ENV PATH="$PATH:/jadx/build/jadx/bin"
 
 WORKDIR /apk
+ENTRYPOINT [ "jadx" ]
+CMD [ "-d" ]
