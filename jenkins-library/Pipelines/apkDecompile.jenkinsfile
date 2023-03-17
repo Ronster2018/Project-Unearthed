@@ -7,6 +7,9 @@ pipeline{
             args '-v $WORKSPACE"/apk'
         }
     }
+    parameters {
+        file '/apk'
+    }
     stages{
         stage("A"){
             steps{
