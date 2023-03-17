@@ -1,0 +1,16 @@
+FROM alpine:latest as stage
+
+RUN apk add git && \
+    git clone https://github.com/skylot/jadx.git
+
+FROM alpine:latest
+COPY --from=stage /jadx /jadx
+
+RUN apk add openjdk11 && \
+    apk add bash &&\
+    cd jadx && \
+    ./gradlew dist
+
+ENV PATH="$PATH:/jadx/build/jadx/bin"
+
+WORKDIR /apk

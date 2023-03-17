@@ -1,0 +1,16 @@
+FROM alpine:latest
+
+RUN apk add openjdk11 && \
+    apk add bash
+
+# Download the linux wrapper and save as apktool
+ADD https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool /usr/local/bin/apktool
+# Download apktool
+ADD https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.7.0.jar /usr/local/bin/apktool.jar
+
+
+RUN cd /usr/local/bin/ \
+    && chmod +x apktool*
+WORKDIR /apk
+ENTRYPOINT [ "apktool" ]
+CMD [ "--version" ]
