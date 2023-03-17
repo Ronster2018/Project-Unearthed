@@ -4,7 +4,7 @@ pipeline{
             filename 'DokcerfileJadX'
             // Dir - where the dockerfiles are located
             dir 'dockerfiles/apks'
-            args '-v $WORKSPACE"/apk'
+            args '-v $WORKSPACE"/apk:/apk'
         }
     }
     parameters {
